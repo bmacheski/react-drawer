@@ -110,13 +110,13 @@ class ReactDrawer extends React.Component {
         start = 'Right'; break;
       }
     }
-    const fade = animate[`fade${direction}${start}`];
+    const slide = animate[`slide${direction}${start}`];
     return classNames(
       'react-drawer-drawer',
       theme.drawer,
       drawerTheme,
       animate.animated,
-      fade,
+      slide,
       {
         [`${theme.hidden}`]: this.state.hiddenDrawer
       }
