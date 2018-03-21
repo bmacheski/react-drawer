@@ -178,42 +178,51 @@ describe('ReactDrawer', () => {
       'fadeOutUp': 'test-fadeOutUp',
       'fadeOutDown': 'test-fadeOutDown',
       'fadeOutLeft': 'test-fadeOutLeft',
-      'fadeOutRight': 'test-fadeOutRight'
+      'fadeOutRight': 'test-fadeOutRight',
+      'slideInUp': 'test-slideInUp',
+      'slideInDown': 'test-slideInDown',
+      'slideInLeft': 'test-slideInLeft',
+      'slideInRight': 'test-slideInRight',
+      'slideOutUp': 'test-slideOutUp',
+      'slideOutDown': 'test-slideOutDown',
+      'slideOutLeft': 'test-slideOutLeft',
+      'slideOutRight': 'test-slideOutRight'
     };
     const wrapper = mount(
       <ReactDrawer open />
     );
     let instance = wrapper.instance();
     let c = instance.getDrawerClassName(theme, animate).split(' ');
+
     expect(c.length).toBe(5);
     expect(c.indexOf('react-drawer-drawer')).not.toBe(-1);
     expect(c.indexOf('test-drawer')).not.toBe(-1);
     expect(c.indexOf('test-hidden')).not.toBe(-1);
     expect(c.indexOf('test-fadeInUp')).toBe(-1);
-    expect(c.indexOf('test-fadeInRight')).not.toBe(-1);
-    expect(c.indexOf('test-fadeInDown')).toBe(-1);
-    expect(c.indexOf('test-fadeInLeft')).toBe(-1);
+    expect(c.indexOf('test-slideInRight')).not.toBe(-1);
+    expect(c.indexOf('test-slideInDown')).toBe(-1);
+    expect(c.indexOf('test-slideInLeft')).toBe(-1);
 
     wrapper.setProps({position: 'top'});
     c = instance.getDrawerClassName(theme, animate).split(' ');
-    expect(c.indexOf('test-fadeInUp')).toBe(-1);
-    expect(c.indexOf('test-fadeInRight')).toBe(-1);
-    expect(c.indexOf('test-fadeInDown')).not.toBe(-1);
-    expect(c.indexOf('test-fadeInLeft')).toBe(-1);
+    expect(c.indexOf('test-slideInUp')).toBe(-1);
+    expect(c.indexOf('test-slideInRight')).toBe(-1);
+    expect(c.indexOf('test-slideInDown')).not.toBe(-1);
+    expect(c.indexOf('test-slideInLeft')).toBe(-1);
 
     wrapper.setProps({position: 'bottom'});
     c = instance.getDrawerClassName(theme, animate).split(' ');
-    expect(c.indexOf('test-fadeInUp')).not.toBe(-1);
-    expect(c.indexOf('test-fadeInRight')).toBe(-1);
-    expect(c.indexOf('test-fadeInDown')).toBe(-1);
-    expect(c.indexOf('test-fadeInLeft')).toBe(-1);
+    expect(c.indexOf('test-slideInUp')).not.toBe(-1);
+    expect(c.indexOf('test-slideInRight')).toBe(-1);
+    expect(c.indexOf('test-slideInDown')).toBe(-1);
+    expect(c.indexOf('test-slideInLeft')).toBe(-1);
 
     wrapper.setProps({position: 'left'});
     c = instance.getDrawerClassName(theme, animate).split(' ');
-    expect(c.indexOf('test-fadeInUp')).toBe(-1);
-    expect(c.indexOf('test-fadeInRight')).toBe(-1);
-    expect(c.indexOf('test-fadeInDown')).toBe(-1);
-    expect(c.indexOf('test-fadeInLeft')).not.toBe(-1);
+    expect(c.indexOf('test-slideInUp')).toBe(-1);
+    expect(c.indexOf('test-slideInRight')).toBe(-1);
+    expect(c.indexOf('test-slideInDown')).toBe(-1);
+    expect(c.indexOf('test-slideInLeft')).not.toBe(-1);
 
 
     wrapper.setProps({position: 'right'});
@@ -223,36 +232,36 @@ describe('ReactDrawer', () => {
     expect(c.indexOf('react-drawer-drawer')).not.toBe(-1);
     expect(c.indexOf('test-drawer')).not.toBe(-1);
     expect(c.indexOf('test-fadeOutUp')).toBe(-1);
-    expect(c.indexOf('test-fadeOutRight')).not.toBe(-1);
-    expect(c.indexOf('test-fadeOutDown')).toBe(-1);
-    expect(c.indexOf('test-fadeOutLeft')).toBe(-1);
+    expect(c.indexOf('test-slideOutRight')).not.toBe(-1);
+    expect(c.indexOf('test-slideOutDown')).toBe(-1);
+    expect(c.indexOf('test-slideOutLeft')).toBe(-1);
 
     wrapper.setProps({position: 'top'});
     instance = wrapper.instance();
     instance.state.open = false;
     c = instance.getDrawerClassName(theme, animate).split(' ');
-    expect(c.indexOf('test-fadeOutUp')).not.toBe(-1);
-    expect(c.indexOf('test-fadeOutRight')).toBe(-1);
-    expect(c.indexOf('test-fadeOutDown')).toBe(-1);
-    expect(c.indexOf('test-fadeOutLeft')).toBe(-1);
+    expect(c.indexOf('test-slideOutUp')).not.toBe(-1);
+    expect(c.indexOf('test-slideOutRight')).toBe(-1);
+    expect(c.indexOf('test-slideOutDown')).toBe(-1);
+    expect(c.indexOf('test-slideOutLeft')).toBe(-1);
 
     wrapper.setProps({position: 'bottom'});
     instance = wrapper.instance();
     instance.state.open = false;
     c = instance.getDrawerClassName(theme, animate).split(' ');
-    expect(c.indexOf('test-fadeOutUp')).toBe(-1);
-    expect(c.indexOf('test-fadeOutRight')).toBe(-1);
-    expect(c.indexOf('test-fadeOutDown')).not.toBe(-1);
-    expect(c.indexOf('test-fadeOutLeft')).toBe(-1);
+    expect(c.indexOf('test-slideOutUp')).toBe(-1);
+    expect(c.indexOf('test-slideOutRight')).toBe(-1);
+    expect(c.indexOf('test-slideOutDown')).not.toBe(-1);
+    expect(c.indexOf('test-slideOutLeft')).toBe(-1);
 
     wrapper.setProps({position: 'left'});
     instance = wrapper.instance();
     instance.state.open = false;
     c = instance.getDrawerClassName(theme, animate).split(' ');
-    expect(c.indexOf('test-fadeOutUp')).toBe(-1);
-    expect(c.indexOf('test-fadeOutRight')).toBe(-1);
-    expect(c.indexOf('test-fadeOutDown')).toBe(-1);
-    expect(c.indexOf('test-fadeOutLeft')).not.toBe(-1);
+    expect(c.indexOf('test-slideOutUp')).toBe(-1);
+    expect(c.indexOf('test-slideOutRight')).toBe(-1);
+    expect(c.indexOf('test-slideOutDown')).toBe(-1);
+    expect(c.indexOf('test-slideOutLeft')).not.toBe(-1);
 
 
     instance.state.hiddenDrawer = false;
